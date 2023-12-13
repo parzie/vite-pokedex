@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  --bg-color: rgba(255, 255, 255, 0.75);
+  font-family: Poppins, sans-serif;
+}
+
+/*
+  Background Pokeball decoration
+*/
+.bg-pokeball {
+  align-items: center;
+  top: -10px;
+  color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  font-size: 15px;
+  justify-content: center;
+  position: absolute;
+  right: -10px;
+
+  &::before,
+  &::after {
+    border-radius: 100%;
+    display: block;
+  }
+
+  &::before {
+    content: "";
+    border: 5em solid currentColor;
+    clip-path: polygon(
+      0% 0%,
+      0% 45%,
+      50% 45%,
+      50% 55%,
+      0% 55%,
+      0% 100%,
+      100% 100%,
+      100% 55%,
+      50% 55%,
+      50% 45%,
+      100% 45%,
+      100% 0%
+    );
+    padding-bottom: 8em;
+    position: relative;
+    width: 8em;
+  }
+
+  &::after {
+    content: "";
+    background-color: currentColor;
+    padding-bottom: 5em;
+    position: absolute;
+    width: 5em;
+  }
+}
