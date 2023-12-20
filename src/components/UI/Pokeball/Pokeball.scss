@@ -1,0 +1,80 @@
+@import '../../../sass/utils/breakpoints';
+
+.pokeball {
+  align-items: center;
+  bottom: -10px;
+  color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  font-size: 6px;
+  justify-content: center;
+  position: absolute;
+  right: -10px;
+
+  &::before,
+  &::after {
+    border-radius: 100%;
+    display: block;
+  }
+
+  &::before {
+    content: '';
+    border: 5em solid currentColor;
+    clip-path: polygon(
+      0% 0%,
+      0% 45%,
+      50% 45%,
+      50% 55%,
+      0% 55%,
+      0% 100%,
+      100% 100%,
+      100% 55%,
+      50% 55%,
+      50% 45%,
+      100% 45%,
+      100% 0%
+    );
+    padding-bottom: 8em;
+    position: relative;
+    width: 8em;
+  }
+
+  &::after {
+    content: '';
+    background-color: currentColor;
+    padding-bottom: 5em;
+    position: absolute;
+    width: 5em;
+  }
+
+  &--dark {
+    color: rgba(0, 0, 0, 0.1);
+  }
+
+  &--inverted {
+    bottom: unset;
+    top: -100px;
+    right: -100px;
+  }
+
+  &--big {
+    font-size: 15px;
+  }
+
+  @include small {
+    font-size: 10px;
+
+    &--inverted {
+      bottom: unset;
+      top: -140px;
+      right: -140px;
+    }
+
+    &--mid {
+      font-size: 10px;
+    }
+
+    &--big {
+      font-size: 20px;
+    }
+  }
+}

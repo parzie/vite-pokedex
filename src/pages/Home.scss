@@ -1,5 +1,35 @@
+@import '../sass/utils/breakpoints';
+
 .home {
   height: 100vh;
   overflow: hidden;
   position: relative;
+  padding: 1rem;
+
+  &__title {
+    margin: 1rem 1rem;
+  }
+
+  &__grid {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__navigation-link {
+    text-decoration: none;
+  }
+
+  @include large {
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @include x-large {
+    &__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
 }

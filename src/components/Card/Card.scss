@@ -1,0 +1,45 @@
+@import '../../sass/utils/breakpoints';
+
+.card {
+  padding: 0.5rem;
+
+  &__container {
+    background-color: var(--color);
+    color: #fff;
+    box-shadow: 0 0 20px 0 var(--color);
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 2rem 1rem 2rem 1rem;
+    will-change: box-shadow, transform;
+    transition: 0.3s all;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  @include small {
+    padding: 1rem;
+
+    &__container {
+      border-radius: 3rem;
+      padding: 3rem 1rem 3rem 3rem;
+    }
+
+    &__title {
+      font-size: 1.6rem;
+    }
+  }
+
+  @include large {
+    .card__container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px 5px var(--color);
+    }
+    &__title {
+      font-size: 2rem;
+    }
+  }
+}
