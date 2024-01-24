@@ -1,7 +1,14 @@
+$x-small: 360px;
 $small: 600px;
 $medium: 768px;
 $large: 1024px;
 $x-large: 1440px;
+
+@mixin x-small() {
+  @media screen and (min-width: $x-small) {
+    @content;
+  }
+}
 
 @mixin small() {
   @media screen and (min-width: $small) {

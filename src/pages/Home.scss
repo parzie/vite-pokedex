@@ -4,15 +4,16 @@
   height: 100vh;
   overflow: hidden;
   position: relative;
-  padding: 1rem;
+  padding: 2rem;
 
   &__title {
-    margin: 1rem 1rem;
+    margin: .5rem 0;
   }
 
   &__grid {
     display: grid;
     align-items: center;
+    gap: 1rem;
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -21,9 +22,27 @@
     text-decoration: none;
   }
 
-  @include large {
+  @include small {
+    padding: 2.5rem;
+
     &__grid {
+      gap: 1.5rem;
+    }
+
+    &__title {
+      margin: 1rem 0;
+    }
+  }
+
+  @include large {
+    padding: 3rem;
+    &__grid {
+      // gap: 2rem;
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__title {
+      margin: 2rem 0;
     }
   }
 
