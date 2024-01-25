@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Pokeball } from '../UI/Pokeball/Pokeball';
 import './Card.scss';
+import Title from '../UI/Title';
 
 type CardProps = { 
   name: string;
@@ -13,7 +14,7 @@ const Card: FC<CardProps> = ({ name, color }) => {
     <div className="card">
       <div className={`card__container type-${color}`}>
         <Pokeball />
-        <h2 className="card__title">{name}</h2>
+        <Title parentClass="card" titleAs='h3' size={2}>{name}</Title>
       </div>
     </div>
   );

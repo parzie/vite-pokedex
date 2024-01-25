@@ -3,6 +3,7 @@ import Card from "../components/Card/Card";
 import { NavLink } from "react-router-dom";
 import { Pokeball } from '../components/UI/Pokeball/Pokeball';
 import './Home.scss';
+import Title from "../components/UI/Title";
 
 function Home() {
   const CARDS = [
@@ -40,7 +41,7 @@ function Home() {
 
   return (
     <div className="home">
-      <h1 className="home__title">What Pokemon are you looking for</h1>
+      <Title parentClass="home" titleAs="h1" size={1}>What Pokemon are you looking for</Title>
       <Pokeball classStyle={'pokeball--dark pokeball--inverted pokeball--big'} />
       <div className="home__grid">
         {CARDS.map(({ color, name, link }) => (
