@@ -1,7 +1,7 @@
 
 import Card from "../components/Card/Card";
 import { NavLink } from "react-router-dom";
-import { Pokeball } from '../components/UI/Pokeball/Pokeball';
+import Pokeball from '../components/UI/Pokeball';
 import './Home.scss';
 import Title from "../components/UI/Title";
 

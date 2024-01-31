@@ -1,6 +1,6 @@
 
 import './Pokedex.scss';
-import { Pokeball } from '../components/UI/Pokeball/Pokeball';
+import Pokeball from '../components/UI/Pokeball';
 import Loader from '../components/Loader/Loader';
 import Title from '../components/UI/Title';
 import { POKEMONS_QUERY } from '../graphql/queries/Pokemon';

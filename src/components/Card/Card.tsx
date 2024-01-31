@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Pokeball } from '../UI/Pokeball/Pokeball';
+import Pokeball from '../UI/Pokeball';
 import './Card.scss';
 import Title from '../UI/Title';
 
