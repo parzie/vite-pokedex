@@ -1,3 +1,4 @@
 import Card from "./Card";
+import PokemonCard from "./PokemonCard";
 
-export default Card;
+export  { Card, PokemonCard };

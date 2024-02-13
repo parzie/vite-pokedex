@@ -11,9 +11,6 @@ const POKEMONS_QUERY = gql`
           id
         }
       }
-      pokemon_v2_pokemonsprites {
-        sprites(path: "other.official-artwork")
-      }
     }
   }
 `;

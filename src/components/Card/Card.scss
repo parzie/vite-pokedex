@@ -1,35 +1,81 @@
 @import '../../sass/utils/breakpoints';
 
 .card {
-  padding: 0.5rem;
+  height: 100%;
 
   &__container {
     background-color: var(--color);
     color: #fff;
-    box-shadow: 0 0 20px 0 var(--color);
     border-radius: 1rem;
     overflow: hidden;
+    height: 100%;
     padding: 2rem 1rem 2rem 1rem;
-    will-change: box-shadow, transform;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     transition: 0.3s all;
+    flex-wrap: wrap;
+  }
+
+  &__pokemon-id {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.2);
   }
 
   &__title {
+    flex: 1 0 100%;
     text-transform: capitalize;
     margin: 0;
-    font-size: 1rem;
+  }
+
+  &__pokemon-types {
+    margin-top: 1rem;
+  }
+
+  &__pokemon-type {
+    border-radius: 100rem;
+    display: table;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.7rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    font-size: 0.8rem;
+  }
+
+  &__pokemon-image {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 50%;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+    }
   }
 
   @include small {
-    padding: 1rem;
-
     &__container {
       border-radius: 3rem;
+      // box-shadow: 0 0 20px 0 var(--color);
       padding: 3rem 1rem 3rem 3rem;
+      // will-change: box-shadow, transform;
+      will-change: transform;
     }
 
-    &__title {
-      font-size: 1.6rem;
+    &__pokemon-id {
+      font-size: 2.5rem;
+      right: 2rem;
+    }
+
+    &__pokemon-type {
+      font-size: 1rem;
     }
   }
 
@@ -37,9 +83,6 @@
     .card__container:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 20px 5px var(--color);
-    }
-    &__title {
-      font-size: 2rem;
     }
   }
 }

@@ -1,33 +1,28 @@
 
 import './Pokedex.scss';
 import Pokeball from '../components/UI/Pokeball';
-import Loader from '../components/Loader/Loader';
 import Title from '../components/UI/Title';
-import { POKEMONS_QUERY } from '../graphql/queries/Pokemon';
-import { useQuery } from '@apollo/client';
-import { Pokemon } from '../types';
+import SearchBar from '../components/SearchBar/SearchBar';
+import CardGrid from '../components/CardGrid/CardGrid';
+import { useState } from 'react';
 
 
 function Pokedex() {
+  const [searchValue, setSearchValue] = useState('');
 
-  const { loading, data } = useQuery(POKEMONS_QUERY, {
-    variables: { limit: 100, name: '' },
-  });
-
-
-  if (loading){
-    return <Loader />;
-  }
+  const handleSetSearchValue = (value: string) => {
+    setSearchValue(value);
+  };
 
   return (
     <div className="pokedex">
       <Title parentClass="pokedex" titleAs="h1" size={1}>Pokedex</Title>
       <Pokeball classStyle={'pokeball--dark pokeball--inverted pokeball--big'} />
-      <ul className="pokedex__list">
-        {data.pokemon_v2_pokemon.map(({ id, name }: Pokemon) => {
-            return <li key={id}>{name}</li>
-        })}
-      </ul>
+      <SearchBar
+        setSearchText={handleSetSearchValue}
+        searchText={searchValue}
+      />
+      <CardGrid searchValue={searchValue} limit={100}/>
     </div>
   )
 }
