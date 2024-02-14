@@ -1,9 +1,9 @@
 
 import Card from "../components/Card/Card";
 import { NavLink } from "react-router-dom";
-import Pokeball from '../components/UI/Pokeball';
+import Pokeball from '../components/UI/Pokeball/Pokeball';
 import './Home.scss';
-import Title from "../components/UI/Title";
+import Title from "../components/UI/Title/Title";
 
 function Home() {
   const CARDS = [

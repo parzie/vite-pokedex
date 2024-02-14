@@ -29,7 +29,7 @@ const SearchBar: FC<Props> = ({
         />
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="What pokemon are you looking for?"
           onChange={({ target: { value } }) => setSearchText(value)}
           value={searchText}
         />

@@ -12,3 +12,4 @@ export const Pokeball: FC<PokeballProps> = ({ classStyle = '' }) => {
   )
 }
 
+export default Pokeball;

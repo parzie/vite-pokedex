@@ -1,14 +1,16 @@
 
 import './Pokedex.scss';
-import Pokeball from '../components/UI/Pokeball';
-import Title from '../components/UI/Title';
+import Pokeball from '../components/UI/Pokeball/Pokeball';
+import Title from '../components/UI/Title/Title';
 import SearchBar from '../components/SearchBar/SearchBar';
 import CardGrid from '../components/CardGrid/CardGrid';
 import { useState } from 'react';
+import useDebounce from '../hooks/useDebounce';
 
 
 function Pokedex() {
   const [searchValue, setSearchValue] = useState('');
+  const debounedSearchValue = useDebounce(searchValue, 300);
 
   const handleSetSearchValue = (value: string) => {
     setSearchValue(value);
@@ -22,9 +24,9 @@ function Pokedex() {
         setSearchText={handleSetSearchValue}
         searchText={searchValue}
       />
-      <CardGrid searchValue={searchValue} limit={100}/>
+      <CardGrid searchValue={debounedSearchValue} limit={20}/>
     </div>
   )
 }
 
-export default Pokedex
+export default Pokedex;

@@ -1,8 +1,8 @@
 import { MouseEventHandler, memo } from 'react';
 import { getImageURL } from '../../utils';
-import { Pokeball } from '../UI/Pokeball/Pokeball';
-import './Card.scss';
+import Pokeball from '../UI/Pokeball/Pokeball';
 import { Pokemon } from '../../types';
+import './Card.scss';
 
 
 const Card = memo(({ pokemon, onClick }: { pokemon: Pokemon, onClick: MouseEventHandler<HTMLDivElement> }) => {

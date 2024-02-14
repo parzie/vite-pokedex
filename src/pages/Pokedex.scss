@@ -1,6 +1,10 @@
 @import '../sass/utils/breakpoints';
 
 .pokedex {
+  min-height: 100svh;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
   padding: 2rem;
   overflow: hidden;
   position: relative;

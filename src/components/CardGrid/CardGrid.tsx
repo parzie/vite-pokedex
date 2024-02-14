@@ -1,11 +1,10 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 import Card from '../Card/PokemonCard';
 import Loader from '../Loader/Loader';
-import './CardGrid.scss'
-
-import { POKEMONS_QUERY } from '../../graphql/queries/Pokemon';
-import { useQuery } from '@apollo/client';
 import { Pokemon } from '../../types';
+import usePokemons from '../../hooks/usePokemons';
+import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+import './CardGrid.scss'
 
 
 interface CardGridProps {
@@ -13,34 +12,43 @@ interface CardGridProps {
   limit: number
 }
 
-const LIMIT = 100;
+const LIMIT = 20;
 
 const CardGrid: FC<CardGridProps> = ({ searchValue, limit = LIMIT }): JSX.Element => {
 
-  const { loading, error, data } = useQuery(POKEMONS_QUERY, {
-    variables: { limit, name: searchValue },
-  });
+  const loadMoreRef = useRef<HTMLDivElement>(null)
+  const { loading, error, pokemonList, fetchNextPage } = usePokemons({ limit, searchValue });
 
-  console.log("data: ", data);
+  console.log("pokemons: ", pokemonList);
 
+  const isObserverEnable = () => !!pokemonList.length && pokemonList.length%limit === 0
 
+  useIntersectionObserver({
+    target: loadMoreRef,
+    onIntersect: fetchNextPage,
+    enabled: isObserverEnable(),
+    trigger: pokemonList,
+  })
 
   if (error) return <p className='center'>Error: {error.message} </p>
 
-  if (loading) {
+  if (loading && !pokemonList.length) {
     return <Loader />;
   }
 
   return (
     <div className="card-grid">
       {
-        data?.pokemon_v2_pokemon.map((pokemon: Pokemon) => {
-            return <Card pokemon={pokemon} key={pokemon.id} onClick={() => console.log(pokemon)} />
+        pokemonList?.map((pokemon: Pokemon) => {
+          return <Card pokemon={pokemon} key={pokemon.id} onClick={() => console.log(pokemon)} />
         })
       }
-
+      <div id="ref" ref={loadMoreRef}>
+        {loadMoreRef && isObserverEnable() ? <Loader /> : ""}
+      </div>
     </div>
   );
 }
+
 
 export default CardGrid;
