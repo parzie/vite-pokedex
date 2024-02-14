@@ -1,0 +1,27 @@
+.search-bar {
+  background-color: #eee;
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin: 1rem 0;
+
+  &__input {
+    display: flex;
+    padding: 10px 20px;
+    width: 100%;
+
+    img {
+      color: black;
+      height: 24px;
+      width: 24px;
+    }
+
+    input {
+      background-color: #eee;
+      border: none;
+      font-size: 18px;
+      margin-left: 10px;
+      outline: none;
+      width: 100%;
+    }
+  }
+}

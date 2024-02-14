@@ -1,16 +1,12 @@
 export type PokemonType = {
-  id: number,
-  name: string,
-}
-
-export type PokemonImages = {
-  front_shiny: number,
-  front_default: string,
+  pokemon_v2_type: {
+    id: number,
+    name: string,
+  }
 }
 
 export type Pokemon = {
   id: number,
   name: string,
-  types: PokemonType[],
-  images: PokemonImages[]
+  pokemon_v2_pokemontypes: PokemonType[],
 }

@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 const POKEMONS_QUERY = gql`
-  query pokemons($name: String!, $limit: Int!) {
-    pokemon_v2_pokemon(where: {name: {_regex: $name}}, limit: $limit) {
+  query pokemons($name: String!, $limit: Int!, $offset: Int!) {
+    pokemon_v2_pokemon(where: {name: {_regex: $name}}, limit: $limit, offset: $offset) {
       id
       name
       pokemon_v2_pokemontypes {
@@ -10,9 +10,6 @@ const POKEMONS_QUERY = gql`
           name
           id
         }
-      }
-      pokemon_v2_pokemonsprites {
-        sprites(path: "other.official-artwork")
       }
     }
   }
