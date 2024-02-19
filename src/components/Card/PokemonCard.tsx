@@ -2,10 +2,16 @@ import { MouseEventHandler, memo } from 'react';
 import { getImageURL } from '../../utils';
 import Pokeball from '../UI/Pokeball/Pokeball';
 import { Pokemon } from '../../types';
+import Title from '../UI/Title/Title';
+import Image from '../UI/Image/Image';
 import './Card.scss';
 
+type pokemonCardProps = {
+  pokemon: Pokemon,
+  onClick: MouseEventHandler<HTMLDivElement>
+}
 
-const Card = memo(({ pokemon, onClick }: { pokemon: Pokemon, onClick: MouseEventHandler<HTMLDivElement> }) => {
+const PokemonCard = memo(({ pokemon, onClick }: pokemonCardProps) => {
   if (!pokemon) {
     return null;
   }
@@ -19,11 +25,11 @@ const Card = memo(({ pokemon, onClick }: { pokemon: Pokemon, onClick: MouseEvent
   return (
     <div className="card" onClick={onClick}>
       <div className={`card__container ${className}`}>
-        <Pokeball classStyle='pokeball--mid' />
+        <Pokeball className='pokeball--mid' />
         <span className="card__pokemon-id">{paddedId}</span>
-        <h2 className="card__title">
+        <Title parentClass={'card'} size={2} >
           {name.replace(/-/g, ' ')}
-        </h2>
+        </Title>
         <div className="card__pokemon-types">
           {
             types.map(({ pokemon_v2_type: { name } }) => (
@@ -31,12 +37,13 @@ const Card = memo(({ pokemon, onClick }: { pokemon: Pokemon, onClick: MouseEvent
             ))
           }
         </div>
-        <div className="card__pokemon-image">
-          <img alt={name} src={imgURL} />
-        </div>
+        <Image 
+          parentClass="card"
+          alt={name} 
+          src={imgURL} />
       </div>
     </div>
   );
 })
 
-export default Card;
+export default PokemonCard;

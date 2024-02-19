@@ -42,7 +42,7 @@ function Home() {
   return (
     <div className="home">
       <Title parentClass="home" titleAs="h1" size={1}>What Pokemon are you looking for</Title>
-      <Pokeball classStyle={'pokeball--dark pokeball--inverted pokeball--big'} />
+      <Pokeball className={'pokeball--dark pokeball--inverted pokeball--big'} />
       <div className="home__grid">
         {CARDS.map(({ color, name, link }) => (
           <NavLink key={name} className="home__navigation-link" to={link}>

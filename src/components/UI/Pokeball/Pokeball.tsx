@@ -2,13 +2,13 @@ import { FC } from 'react'
 import './Pokeball.scss'
 
 interface PokeballProps {
-  classStyle?: string;
+  className?: string;
 }
 
-export const Pokeball: FC<PokeballProps> = ({ classStyle = '' }) => {
+export const Pokeball: FC<PokeballProps> = ({ className = '' }) => {
 
   return (
-    <div className={`pokeball ${classStyle}`} ></div>
+    <div className={`pokeball ${className}`} ></div>
   )
 }
 

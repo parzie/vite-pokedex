@@ -1,5 +1,5 @@
 import { FC, useRef } from 'react';
-import Card from '../Card/PokemonCard';
+import PokemonCard from '../Card/PokemonCard';
 import Loader from '../Loader/Loader';
 import { Pokemon } from '../../types';
 import usePokemons from '../../hooks/usePokemons';
@@ -40,7 +40,7 @@ const CardGrid: FC<CardGridProps> = ({ searchValue, limit = LIMIT }): JSX.Elemen
     <div className="card-grid">
       {
         pokemonList?.map((pokemon: Pokemon) => {
-          return <Card pokemon={pokemon} key={pokemon.id} onClick={() => console.log(pokemon)} />
+          return <PokemonCard pokemon={pokemon} key={pokemon.id} onClick={() => console.log(pokemon)} />
         })
       }
       <div id="ref" ref={loadMoreRef}>

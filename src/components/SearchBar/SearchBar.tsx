@@ -2,12 +2,12 @@ import { FC, useRef } from 'react';
 import Image from '../UI/Image/Image';
 import './SearchBar.scss';
 
-interface Props {
+interface SearchBarProps {
   searchText: string;
   setSearchText: (value: string) => void;
 }
 
-const SearchBar: FC<Props> = ({
+const SearchBar: FC<SearchBarProps> = ({
   searchText,
   setSearchText,
 }): JSX.Element => {
@@ -23,6 +23,7 @@ const SearchBar: FC<Props> = ({
     >
       <div className='search-bar__input'>
         <Image
+          parentClass='search-bar'
           src="searchIcon.svg"
           alt="Search icon"
           imageBpWidths={['24px', '24px']}

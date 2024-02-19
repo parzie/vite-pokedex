@@ -5,31 +5,31 @@ $large: 1024px;
 $x-large: 1440px;
 
 @mixin x-small() {
-  @media screen and (min-width: $x-small) {
+  @media (width >= $x-small) {
     @content;
   }
 }
 
 @mixin small() {
-  @media screen and (min-width: $small) {
+  @media (width >= $small) {
     @content;
   }
 }
 
 @mixin medium() {
-  @media screen and (min-width: $medium) {
+  @media (width >= $medium) {
     @content;
   }
 }
 
 @mixin large() {
-  @media screen and (min-width: $large) {
+  @media (width >= $large) {
     @content;
   }
 }
 
 @mixin x-large() {
-  @media screen and (min-width: $x-large) {
+  @media (width >= $x-large) {
     @content;
   }
 }

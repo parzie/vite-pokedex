@@ -19,10 +19,9 @@ export default function useIntersectionObserver({
   threshold = 0.1,
   trigger,
 }: UseIntersectionObserverProps) {
+
   useEffect(() => {
-    if (!enabled) {
-      return
-    }
+    if (!enabled) return;
 
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && onIntersect()),
@@ -33,13 +32,9 @@ export default function useIntersectionObserver({
       },
     )
 
-    console.log("intersecting");
+    const el = target && target.current;
 
-    const el = target && target.current
-
-    if (!el) {
-      return
-    }
+    if (!el) return;
 
     observer.observe(el)
 
